@@ -332,4 +332,85 @@
 
 			});
 
+	// Portfolio Filtering
+		var $filterSearch = $('#portfolio-search'),
+			$filterBtns = $('.filter-btn'),
+			$portfolioItems = $('.tiles article');
+
+		if ($filterSearch.length > 0) {
+			function filterPortfolio() {
+				var query = $filterSearch.val().toLowerCase();
+				var activeTags = $filterBtns.filter('.active').map(function() {
+					return $(this).data('filter');
+				}).get();
+
+				$portfolioItems.each(function() {
+					var $item = $(this);
+					var title = $item.find('h3').text().toLowerCase();
+					var text = $item.find('p').text().toLowerCase();
+					var tags = $item.data('tags') ? $item.data('tags').toString().split(',') : [];
+					
+					// Check if item matches search query
+					var matchesSearch = title.includes(query) || text.includes(query);
+					
+					// Check if item matches active tags
+					// If "all" is active, or no specific tags are active, it matches (unless we want strictly ALL selected tags)
+					// Here we implement: Show item if it has ALL of the active tags.
+					// If "all" is active, we ignore specific tags.
+					var matchesTags = false;
+					
+					if (activeTags.includes('all')) {
+						matchesTags = true;
+					} else {
+						// AND logic: item must have ALL of the selected tags
+						matchesTags = activeTags.every(function(tag) {
+							return tags.includes(tag);
+						});
+						
+						// If no tags selected (shouldn't happen if we enforce one active, but good fallback)
+						if (activeTags.length === 0) matchesTags = true;
+					}
+
+					if (matchesSearch && matchesTags) {
+						$item.show();
+					} else {
+						$item.hide();
+					}
+				});
+
+				// Check if we are in a filtered state (not all items visible)
+				if ($portfolioItems.filter(':visible').length < $portfolioItems.length) {
+					$portfolioItems.parent().addClass('filtered');
+				} else {
+					$portfolioItems.parent().removeClass('filtered');
+				}
+			}
+
+			$filterSearch.on('input', filterPortfolio);
+
+			$filterBtns.on('click', function(e) {
+				e.preventDefault();
+				var $this = $(this);
+				var filter = $this.data('filter');
+
+				if (filter === 'all') {
+					$filterBtns.removeClass('active');
+					$this.addClass('active');
+				} else {
+					// If clicking a specific tag, remove "all"
+					$filterBtns.filter('[data-filter="all"]').removeClass('active');
+					
+					// Toggle this tag
+					$this.toggleClass('active');
+					
+					// If no tags are active after toggle, select "all"
+					if ($filterBtns.filter('.active').length === 0) {
+						$filterBtns.filter('[data-filter="all"]').addClass('active');
+					}
+				}
+
+				filterPortfolio();
+			});
+		}
+
 })(jQuery);

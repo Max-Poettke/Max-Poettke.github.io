@@ -41,11 +41,11 @@
 								<h1>Hi, my name is Max</h1>
 							</header>
 							<div class="content">
-								<p>A passionate software developer<br />
+								<p>I'm a passionate software developer<br />
 								and games enthusiast.</p>
-								<ul class="actions">
+								<!-- <ul class="actions">
 									<li><a href="#one" class="button next scrolly">Get Started</a></li>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 					</section>
@@ -53,27 +53,54 @@
 				<!-- Main -->
 					<div id="main">
 
+						<!-- Filters -->
+							<section id="filters">
+								<div class="inner">
+									<div class="filter-container">
+										<input type="text" id="portfolio-search" placeholder="Search" />
+										<div class="filter-tags">
+											<button class="filter-btn active" data-filter="all">All</button>
+											<button class="filter-btn" data-filter="Unity">Unity</button>
+											<button class="filter-btn" data-filter="VR/AR">VR/AR</button>
+											<button class="filter-btn" data-filter="Game Design">Game Design</button>
+											<button class="filter-btn" data-filter="2D">2D</button>
+											<button class="filter-btn" data-filter="Java">Java</button>
+											<button class="filter-btn" data-filter="UI">UI</button>
+										</div>
+									</div>
+								</div>
+							</section>
+
 						<!-- One -->
 							<section id="one" class="tiles">
-								<article>
+								<article data-tags="Current,Unity">
 									<span class="image">
-										<img src="images/Timeglide.png" alt="" />
+										<img src="images/VFXCrystal.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing_time.html" class="link">TimeGlideAR</a></h3>
-										<p>Out of the box VR learning app in collaboration with Museum Wilhelmsburg</p>
+										<h3><a href="landing_current.html" class="link">Current Projects</a></h3>
+										<p>What I'm currently working on</p>
 									</header>
 								</article>
-								<article>
+								<article data-tags="Game Design">
 									<span class="image">
-										<img src="images/Boardscapes.png" alt="" />
+										<img src="images/DnD4.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing_tum.html" class="link">TUM Games</a></h3>
-										<p>Games developed and presented at TUM</p>
+										<h3><a href="landing_dnd.html" class="link">Game Design</a></h3>
+										<p>Rules, art and planning</p>
 									</header>
 								</article>
-								<article>
+								<article data-tags="UI,Unity">
+									<span class="image">
+										<img src="images/UIFront.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing_ui.html" class="link">UI Work</a></h3>
+										<p>User Interface Designs and Implementations</p>
+									</header>
+								</article>
+								<article data-tags="Unity,VR/AR">
 									<span class="image">
 										<img src="images/Grabby.png" alt="" />
 									</span>
@@ -82,7 +109,25 @@
 										<p>Intergalactic VR adventure developed for Meta Quest</p>
 									</header>
 								</article>
-								<article>
+								<article data-tags="Unity,VR/AR">
+									<span class="image">
+										<img src="images/Timeglide.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing_time.html" class="link">TimeGlideAR</a></h3>
+										<p>Out of the box VR learning app in collaboration with Museum Wilhelmsburg</p>
+									</header>
+								</article>
+								<article data-tags="Game Design,Unity,VR/AR">
+									<span class="image">
+										<img src="images/Boardscapes.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing_tum.html" class="link">TUM Games</a></h3>
+										<p>Games developed and presented at TUM</p>
+									</header>
+								</article>
+								<article data-tags="2D,Game Design">
 									<span class="image">
 										<img src="images/Anomaly.png" alt="" />
 									</span>
@@ -91,7 +136,7 @@
 										<p>Retro 2D puzzle Game developed in two days for Microjam 32</p>
 									</header>
 								</article>
-								<article>
+								<article data-tags="Java">
 									<span class="image">
 										<img src="images/Ostseeschach.png" alt="" />
 									</span>
@@ -100,7 +145,7 @@
 										<p>Competing with germany to create a Chessbot in JAVA</p>
 									</header>
 								</article>
-								<article>
+								<article data-tags="2D">
 									<span class="image">
 										<img src="images/Cellular.png" alt="" />
 									</span>
