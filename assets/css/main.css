@@ -2831,28 +2831,20 @@ input, select, textarea {
 				width: 60%;
 			}
 
-			.tiles article:nth-child(6n - 5):before {
+			.tiles article:nth-child(4n - 3):before {
 				background-color: #EB5E28;
 			}
 
-			.tiles article:nth-child(6n - 4):before {
+			.tiles article:nth-child(4n - 2):before {
 				background-color: #403D39;
 			}
 
-			.tiles article:nth-child(6n - 3):before {
+			.tiles article:nth-child(4n - 1):before {
 				background-color: #252422;
 			}
 
-			.tiles article:nth-child(6n - 2):before {
+			.tiles article:nth-child(4n):before {
 				background-color: #EB5E28;
-			}
-
-			.tiles article:nth-child(6n - 1):before {
-				background-color: #403D39;
-			}
-
-			.tiles article:nth-child(6n):before {
-				background-color: #252422;
 			}
 
 		/* Filtered State */
